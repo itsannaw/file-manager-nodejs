@@ -1,0 +1,20 @@
+{
+  "name": "file-manager-nodejs",
+  "version": "1.0.0",
+  "description": "file manager",
+  "type": "module",
+  "main": "src/start.js",
+  "scripts": {
+    "start": "node src/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsannaw/file-manager-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsannaw/file-manager-nodejs/issues"
+  },
+  "homepage": "https://github.com/itsannaw/file-manager-nodejs#readme"
+}
