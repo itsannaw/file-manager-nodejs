@@ -1,6 +1,10 @@
-
 import { createInterface } from "node:readline";
-import { CURRENT_DIRECTORY, GOODBYE_MESSAGE, WELCOME_MESSAGE } from "./utils/constants.js";
+import {
+  CURRENT_DIRECTORY,
+  GOODBYE_MESSAGE,
+  WELCOME_MESSAGE,
+  displayAvailableCommands,
+} from "./utils/constants.js";
 import { processCommands } from "./commands.js";
 
 const currentDirectory = process.cwd();
@@ -13,6 +17,9 @@ const rl = createInterface({
 export const readlineFunction = (username) => {
   WELCOME_MESSAGE(username);
   CURRENT_DIRECTORY(currentDirectory);
+  console.log(
+    "For ease of use, I added a 'help' command that shows all possible commands in File Manager :)"
+  );
 
   rl.on("line", async (input) => {
     if (input.trim() === ".exit") {
