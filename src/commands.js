@@ -20,6 +20,12 @@ import {
 const rootDirectory = parse(process.cwd()).root;
 let currentDirectory = process.cwd();
 
+export const setCurrentDirectory = (newDirectory) => {
+  currentDirectory = newDirectory;
+};
+
+export { currentDirectory };
+
 export const processCommands = async (command) => {
   const [operation, ...args] = command.split(" ");
 
