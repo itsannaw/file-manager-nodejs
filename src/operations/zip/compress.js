@@ -3,15 +3,13 @@ import zlib from "zlib";
 
 export function compressFile(sourcePath, destinationPath) {
   return new Promise((resolve, reject) => {
-    const brotliOptions = {
+    const brotliStream = zlib.createBrotliCompress({
       params: {
         [zlib.constants.BROTLI_PARAM_QUALITY]:
           zlib.constants.BROTLI_MAX_QUALITY,
       },
-    };
-
+    });
     const readStream = createReadStream(sourcePath);
-    const brotliStream = zlib.createBrotliCompress(brotliOptions);
     const writeStream = createWriteStream(`${destinationPath}.br`);
 
     const pipeline = readStream.pipe(brotliStream).pipe(writeStream);

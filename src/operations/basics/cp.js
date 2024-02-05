@@ -13,7 +13,7 @@ export async function copyFile(sourcePath, destinationPath) {
     await fsPromises.access(sourceFilePath);
   } catch (error) {
     console.error(
-      `Operation failed: source file does not exist: ${sourceFilePath}`
+      `Operation failed: source file does not exist ${sourceFilePath}`
     );
     return;
   }
@@ -27,7 +27,7 @@ export async function copyFile(sourcePath, destinationPath) {
     await fsPromises.access(destinationDirPath);
   } catch (error) {
     console.error(
-      `Operation failed: destination directory does not exist: ${destinationDirPath}`
+      `Operation failed: ${destinationDirPath}`
     );
     return;
   }
@@ -39,13 +39,13 @@ export async function copyFile(sourcePath, destinationPath) {
 
   readStream.on("error", (error) => {
     console.error(
-      `Operation failed: an error occurred while reading the file: ${error.message}`
+      `Operation failed: ${error.message}`
     );
   });
 
   writeStream.on("error", (error) => {
     console.error(
-      `Operation failed: an error occurred while writing the file: ${error.message}`
+      `Operation failed: ${error.message}`
     );
   });
 

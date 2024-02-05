@@ -8,7 +8,7 @@ export function renameFile(oldPath, newName) {
   rename(oldFilePath, newFilePath, (error) => {
     if (error) {
       console.error(
-        `An error occurred while renaming the file: ${error.message}`
+        `Operation failed: ${error.message}`
       );
     } else {
       console.log(`File has been renamed to: ${newFilePath}`);

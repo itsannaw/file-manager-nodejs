@@ -13,7 +13,7 @@ export async function moveFile(sourcePath, destinationPath) {
     await fsPromises.access(sourceFilePath);
   } catch (error) {
     console.error(
-      `Operation failed: source file does not exist: ${sourceFilePath}`
+      `Operation failed: source file does not exist ${sourceFilePath}`
     );
     return;
   }
@@ -22,7 +22,7 @@ export async function moveFile(sourcePath, destinationPath) {
     await fsPromises.access(destinationDirPath);
   } catch (error) {
     console.error(
-      `Operation failed: destination directory does not exist: ${destinationDirPath}`
+      `Operation failed: destination directory does not exist ${destinationDirPath}`
     );
     return;
   }
@@ -39,24 +39,24 @@ export async function moveFile(sourcePath, destinationPath) {
 
   readStream.on("error", (error) => {
     console.error(
-      `Operation failed: an error occurred while reading the file: ${error.message}`
+      `Operation failed: an error occurred while reading the file ${error.message}`
     );
   });
 
   writeStream.on("error", (error) => {
     console.error(
-      `Operation failed: an error occurred while writing the file: ${error.message}`
+      `Operation failed: an error occurred while writing the file ${error.message}`
     );
   });
 
   writeStream.on("finish", async () => {
-    console.log(`File moved successfully to: ${destinationFilePath}`);
+    console.log(`File moved successfully to ${destinationFilePath}`);
     try {
       await fsPromises.unlink(sourceFilePath);
       console.log(`Source file deleted: ${sourceFilePath}`);
     } catch (error) {
       console.error(
-        `Operation failed: an error occurred while deleting the source file: ${error.message}`
+        `Operation failed: an error occurred while deleting the source file ${error.message}`
       );
     }
   });

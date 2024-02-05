@@ -3,7 +3,6 @@ import {
   CURRENT_DIRECTORY,
   GOODBYE_MESSAGE,
   WELCOME_MESSAGE,
-  displayAvailableCommands,
 } from "./utils/constants.js";
 import { processCommands } from "./commands.js";
 
@@ -23,7 +22,6 @@ export const readlineFunction = (username) => {
 
   rl.on("line", async (input) => {
     if (input.trim() === ".exit") {
-      GOODBYE_MESSAGE(username);
       rl.close();
     } else {
       try {
